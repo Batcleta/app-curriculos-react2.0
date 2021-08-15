@@ -20,5 +20,5 @@ const ContentMenu = styled.div`
   top: 0;
   bottom: 0;
   width: 270px;
-  background: gray;
+  background: white;
 `;
