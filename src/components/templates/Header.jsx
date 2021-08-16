@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+// Components
+import MobileMenu from "../MobileMenu";
 import { themes } from "../../globalstyles/ColorStyles";
 
 const Header = ({ children }) => {
   const history = useHistory().location.pathname;
   return (
     <HeaderWrapper>
+      <MobileMenu />
       {children}
       <LineBottom history={history} />
     </HeaderWrapper>

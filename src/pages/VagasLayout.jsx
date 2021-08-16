@@ -4,8 +4,6 @@ import styled from "styled-components";
 import Header from "../components/templates/Header";
 import Main from "../components/templates/Main";
 import Footer from "../components/templates/Footer";
-// Components
-import MobileMenu from "../components/MobileMenu";
 // styles
 import { themes } from "../globalstyles/ColorStyles";
 import { Container, H1, MediumText } from "../globalstyles/GlobalStyles";
@@ -15,9 +13,7 @@ import searchIcon from "../assets/images/search-icon.svg";
 const VagasLayout = () => {
   return (
     <LayoutWrapper>
-      {" "}
       <Header>
-        <MobileMenu />
         <ContentWrapper>
           <TextWrapper>
             <Title>Learn the best tools and platforms</Title>
@@ -32,7 +28,7 @@ const VagasLayout = () => {
             <input type="text" placeholder="Informe a vaga desejada" />
           </SearchWrapper>
 
-          {/* Tentar colocar um icone aqui */}
+          {/* Tentar colocar um icone de reset */}
           <FilterReset>Resetar pesquisa</FilterReset>
         </ContentWrapper>
       </Header>

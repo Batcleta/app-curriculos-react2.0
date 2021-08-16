@@ -6,13 +6,13 @@ import { useToggle } from "../context/VagasContext";
 import BackButton from "./BackButton";
 
 const MobileMenu = ({ back, icon }) => {
-  const { setToggleMenu } = useToggle();
+  const { toggleMenu, setToggleMenu } = useToggle();
 
   return (
     <Wrapper backOn={back}>
       {!back ? "" : <BackButton />}
       {!icon ? "" : ""}
-      <ToggleMenu onClick={() => setToggleMenu(true)}></ToggleMenu>
+      <ToggleMenu onClick={() => setToggleMenu(!toggleMenu)}></ToggleMenu>
     </Wrapper>
   );
 };

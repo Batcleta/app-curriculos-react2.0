@@ -4,11 +4,13 @@ import styled from "styled-components";
 // Templates
 import Menu from "./components/templates/Menu";
 import VagasLayout from "./pages/VagasLayout";
-// Pages
+// Context
+import { UseFlatMenu } from "./context/VagasContext";
 
 const App = () => {
+  const { flatMenu } = UseFlatMenu();
   return (
-    <Wrapper>
+    <Wrapper flat={flatMenu}>
       <Menu />
       <Switch>
         <Route exact path="/" component={VagasLayout} />
@@ -26,7 +28,8 @@ const Wrapper = styled.div`
   grid-template-areas: "PageLayout";
 
   @media (min-width: 1360px) {
-    grid-template-columns: 270px auto;
+    grid-template-columns: ${({ flat }) =>
+      !flat ? "270px auto" : "100px auto"};
     grid-template-areas: "sideMenu PageLayout";
     height: 100vh;
   }
