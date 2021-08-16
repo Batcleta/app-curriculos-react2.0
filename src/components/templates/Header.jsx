@@ -1,15 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-// Components
-import MobileMenu from "../MobileMenu";
+// Styles
 import { themes } from "../../globalstyles/ColorStyles";
 
 const Header = ({ children }) => {
   const history = useHistory().location.pathname;
   return (
     <HeaderWrapper>
-      <MobileMenu />
       {children}
       <LineBottom history={history} />
     </HeaderWrapper>
@@ -19,8 +17,8 @@ const Header = ({ children }) => {
 export default Header;
 
 const HeaderWrapper = styled.div`
-  grid-area: header;
   display: grid;
+  grid-area: header;
   grid-template-rows: 70px auto 20px;
 
   background: ${({ history }) =>

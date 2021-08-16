@@ -7,7 +7,6 @@ const Menu = ({ children }) => {
   const { toggleMenu, setToggleMenu } = useToggle();
   const { flatMenu, setFlatMenu } = UseFlatMenu();
 
-  console.log(flatMenu);
   return (
     <MenuWrapper>
       <ContentMenu toggle={toggleMenu} flat={flatMenu}>

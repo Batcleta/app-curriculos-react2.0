@@ -4,6 +4,9 @@ import styled from "styled-components";
 import Header from "../components/templates/Header";
 import Main from "../components/templates/Main";
 import Footer from "../components/templates/Footer";
+// Components
+import DetVagas from "../components/DetVagas";
+import MobileMenu from "../components/MobileMenu";
 // styles
 import { themes } from "../globalstyles/ColorStyles";
 import { Container, H1, MediumText } from "../globalstyles/GlobalStyles";
@@ -15,6 +18,7 @@ const VagasLayout = () => {
   return (
     <LayoutWrapper>
       <Header>
+        <MobileMenu />
         <HeaderContent>
           <TextWrapper>
             <Title>Learn the best tools and platforms</Title>
@@ -43,7 +47,8 @@ const VagasLayout = () => {
           </CardsWrapper>
         </MainContent>
       </Main>
-      <Footer></Footer>
+      <Footer />
+      <DetVagas />
     </LayoutWrapper>
   );
 };
