@@ -4,6 +4,7 @@ import styled from "styled-components";
 // Templates
 import Menu from "./components/templates/Menu";
 import VagasLayout from "./pages/VagasLayout";
+import FormLayout from "./pages/FormLayout";
 // Context
 import { UseFlatMenu } from "./context/VagasContext";
 
@@ -14,6 +15,7 @@ const App = () => {
       <Menu />
       <Switch>
         <Route exact path="/" component={VagasLayout} />
+        <Route path="/formulario" component={FormLayout} />
       </Switch>
     </Wrapper>
   );
