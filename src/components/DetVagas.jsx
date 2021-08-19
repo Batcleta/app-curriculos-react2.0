@@ -31,12 +31,8 @@ const DetVagas = () => {
           </ContentWrapper>
         </ContentHeader>
       </Header>
-      <Main>
-        <VagasDescription>
-          Criada dia 05/07/2021
-          <br />
-          Expira em 20 dias
-        </VagasDescription>
+      <MainWrapper>
+        <VagasDescription>Criada dia 05/07/2021</VagasDescription>
         <VagasCardWrapper>
           <VagasCard>
             <CardTitle>Descrição da vaga</CardTitle>
@@ -67,8 +63,10 @@ const DetVagas = () => {
             </ul>
           </VagasCard>
         </VagasCardWrapper>
-        <ApplyButton onClick={() => nextPage()} />
-      </Main>
+        <ApplyButton onClick={() => nextPage()}>
+          Quero me candidatar
+        </ApplyButton>
+      </MainWrapper>
     </Wrapper>
   );
 };
@@ -79,6 +77,7 @@ const Wrapper = styled.div`
   position: fixed;
   top: 15px;
   right: 10px;
+  bottom: 15px;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -88,17 +87,17 @@ const Wrapper = styled.div`
     "main";
 
   width: 100vw;
-  height: 100vh;
 
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: ${({ active }) =>
     !active ? "translateX(110%)" : "translateX(0%)"};
 
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
+  border-radius: 16px;
+  overflow-y: auto;
 
   @media (min-width: 1360px) {
-    width: 400px;
+    width: 390px;
   }
 `;
 
@@ -164,14 +163,61 @@ const JobTitle = styled.div`
   color: #ffffff;
 `;
 
-const VagasDescription = styled.p``;
-const VagasCardWrapper = styled.div``;
-const VagasCard = styled.div``;
-const CardTitle = styled.h1``;
-const CardDescription = styled.p``;
+const MainWrapper = styled.div`
+  display: grid;
+  gap: 25px;
+
+  background: ${themes.light.MainBackground};
+  padding: 10px 25px;
+`;
+const VagasDescription = styled.p`
+  font-size: 14px;
+`;
+const VagasCardWrapper = styled.div`
+  display: grid;
+  gap: 20px;
+`;
+const VagasCard = styled.div`
+  display: grid;
+  gap: 15px;
+
+  padding: 25px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 10px 0px 30px rgba(34, 79, 169, 0.1);
+  border-radius: 16px;
+
+  ul {
+    padding: 0px 20px;
+    li {
+      list-style-type: square;
+      padding: 5px 0px;
+      font-size: 15px;
+      line-height: 130%;
+    }
+  }
+`;
+const CardTitle = styled.h2`
+  font-weight: bold;
+  font-size: 17px;
+  color: #5c4fb8;
+`;
+const CardDescription = styled.p`
+  font-size: 15px;
+  line-height: 130%;
+`;
 
 const ApplyButton = styled.div`
-  width: 50px;
-  height: 50px;
-  background: pink;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+
+  width: 100%;
+  height: 60px;
+  background: #7460ee;
+  box-shadow: 10px 0px 30px rgba(34, 79, 169, 0.1);
+  border-radius: 16px;
+
+  color: white;
+  font-size: 16px;
 `;

@@ -6,8 +6,9 @@ import { themes } from "../../globalstyles/ColorStyles";
 
 const Header = ({ children }) => {
   const history = useHistory().location.pathname;
+  console.log(history);
   return (
-    <HeaderWrapper>
+    <HeaderWrapper history={history}>
       {children}
       <LineBottom history={history} />
     </HeaderWrapper>

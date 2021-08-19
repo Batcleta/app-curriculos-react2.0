@@ -14,7 +14,13 @@ const FormLayout = () => {
         <LargeNav>
           <BackButton />
         </LargeNav>
-        <ContentWrapper></ContentWrapper>
+        <ContentWrapper>
+          <Title>Learn the best tools and platforms</Title>
+          <Description>
+            Most coding courses treat design as an afterthought. Yet, the
+            process of making
+          </Description>
+        </ContentWrapper>
       </Header>
       <Main></Main>
     </Wrapper>
@@ -48,3 +54,5 @@ const LargeNav = styled.div`
 `;
 
 const ContentWrapper = styled.div``;
+const Title = styled.h2``;
+const Description = styled.p``;
