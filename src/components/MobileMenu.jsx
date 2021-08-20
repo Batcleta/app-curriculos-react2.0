@@ -23,7 +23,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: ${({ backOn }) => (!backOn ? "auto" : "auto auto")};
   align-items: center;
-  padding: 20px;
+  padding: 1.25em;
 
   @media (min-width: 1360px) {
     display: none;
@@ -34,8 +34,8 @@ const ToggleMenu = styled.div`
   display: grid;
   justify-self: right;
 
-  width: 50px;
-  height: 50px;
+  width: 3.125em;
+  height: 3.125em;
   background: pink;
   border-radius: 50%;
 `;

@@ -60,7 +60,7 @@ const LayoutWrapper = styled.div`
   grid-area: PageLayout;
 
   grid-template-columns: auto;
-  grid-template-rows: 440px auto 50px;
+  grid-template-rows: 27.5em auto 3.125em;
 
   grid-template-areas:
     "header"
@@ -70,20 +70,20 @@ const LayoutWrapper = styled.div`
   background: ${themes.light.MainBackground};
 
   @media (min-width: 1360px) {
-    grid-template-rows: 300px auto 50px;
+    grid-template-rows: 18.75em auto 3.125em;
   }
 `;
 const HeaderContent = styled(Container)`
   display: grid;
-  gap: 30px;
+  gap: 1.875em;
   align-content: center;
 `;
 const TextWrapper = styled.div`
   display: grid;
-  gap: 15px;
+  gap: 0.9375em;
 
   @media (min-width: 1360px) {
-    gap: 10px;
+    gap: 0.625em;
   }
 `;
 const Title = styled(H1)`
@@ -99,25 +99,25 @@ const SearchWrapper = styled.div`
 
   > img {
     position: absolute;
-    left: 20px;
+    left: 1.25em;
   }
 
   > input {
-    font-size: 17px;
+    font-size: 1.0625em;
     color: #323232;
 
-    max-width: 450px;
-    height: 50px;
-    padding-left: 60px;
+    max-width: 28.125em;
+    height: 3.125em;
+    padding-left: 3.75em;
 
     background: ${themes.light.MainBackground};
-    border-radius: 68px;
+    border-radius: 4.25em;
 
     ::placeholder {
       color: #989898;
       font-weight: 600;
-      letter-spacing: 0.5px;
-      font-size: 16px;
+      letter-spacing: 0.03125em;
+      font-size: 1em;
     }
   }
 `;
@@ -130,19 +130,23 @@ const FilterReset = styled.p`
 // main
 const MainContent = styled(Container)`
   display: grid;
-  gap: 25px;
+  gap: 1.5625em;
 `;
 const VagasInfo = styled.div``;
 
 const CardsWrapper = styled.div`
   display: grid;
-  gap: 25px;
+  gap: 1.5625em;
   grid-template-rows: repeat(3, auto);
-  padding-bottom: 50px;
+  padding-bottom: 3.125em;
 
   @media (min-width: 1360px) {
-    row-gap: 40px;
+    row-gap: 2.5em;
     grid-template-rows: auto;
     grid-template-columns: repeat(3, auto);
+  }
+
+  @media (min-width: 1400px) {
+    gap: 3em;
   }
 `;

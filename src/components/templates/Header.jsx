@@ -20,7 +20,7 @@ export default Header;
 const HeaderWrapper = styled.div`
   display: grid;
   grid-area: header;
-  grid-template-rows: 70px auto 20px;
+  grid-template-rows: 4.375em auto 1.25em;
 
   background: ${({ history }) =>
     history === "/formulario"
@@ -28,14 +28,15 @@ const HeaderWrapper = styled.div`
       : `${themes.light.mainColor}`};
 
   @media (min-width: 1360px) {
-    grid-template-rows: 1fr 20px;
+    grid-template-rows: ${({ history }) =>
+      history === "/formulario" ? `5em 1fr` : `1fr 1.25em`};
   }
 `;
 
 const LineBottom = styled.div`
-  height: 20px;
+  height: 1.25em;
 
-  border-radius: 12px 12px 0 0;
+  border-radius: 0.75em 0.75em 0 0;
 
   background: ${({ history }) =>
     history === "/formulario"

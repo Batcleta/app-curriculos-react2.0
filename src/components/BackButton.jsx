@@ -18,7 +18,7 @@ const BackButton = () => {
 export default BackButton;
 
 const Wrapper = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 3.125em;
+  height: 3.125em;
   background: red;
 `;

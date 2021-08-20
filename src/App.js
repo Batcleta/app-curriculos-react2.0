@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 
   @media (min-width: 1360px) {
     grid-template-columns: ${({ flat }) =>
-      !flat ? "270px auto" : "100px auto"};
+      !flat ? "16.875em auto" : "6.25em auto"};
     grid-template-areas: "sideMenu PageLayout";
     height: 100vh;
   }

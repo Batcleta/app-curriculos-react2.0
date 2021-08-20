@@ -75,13 +75,13 @@ export default DetVagas;
 
 const Wrapper = styled.div`
   position: fixed;
-  top: 15px;
-  right: 10px;
-  bottom: 15px;
+  top: 0.9375em;
+  right: 0.625em;
+  bottom: 0.9375em;
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 290px 1fr;
+  grid-template-rows: 18.125em 1fr;
   grid-template-areas:
     "header"
     "main";
@@ -92,17 +92,21 @@ const Wrapper = styled.div`
   transform: ${({ active }) =>
     !active ? "translateX(110%)" : "translateX(0%)"};
 
-  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.2);
-  border-radius: 16px;
+  box-shadow: 0em 0em 3.125em rgba(0, 0, 0, 0.2);
+  border-radius: 1em;
   overflow-y: auto;
 
   @media (min-width: 1360px) {
-    width: 390px;
+    width: 24.375em;
+  }
+
+  @media (min-width: 1400px) {
+    width: 28em;
   }
 `;
 
 const ContentHeader = styled.div`
-  padding: 50px 25px 20px;
+  padding: 3.125em 1.5625em 1.25em;
   display: grid;
 `;
 
@@ -110,23 +114,23 @@ const CloseButton = styled.div`
   display: none;
   @media (min-width: 1360px) {
     position: absolute;
-    top: 30px;
-    left: 30px;
+    top: 1.875em;
+    left: 1.875em;
     display: grid;
     justify-self: left;
 
-    width: 50px;
-    height: 50px;
+    width: 3.125em;
+    height: 3.125em;
     background: red;
   }
 `;
 
 const MobileCloseButton = styled(CloseButton)`
   display: grid;
-  width: 50px;
-  height: 50px;
+  width: 3.125em;
+  height: 3.125em;
   background: red;
-  margin: 20px;
+  margin: 1.25em;
   @media (min-width: 1360px) {
     display: none;
   }
@@ -141,68 +145,68 @@ const ImageWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  height: 100px;
-  width: 100px;
+  height: 6.25em;
+  width: 6.25em;
 
   border-radius: 50%;
   background: ${themes.light.MainBackground};
 `;
 const CompanyTitle = styled.div`
-  font-size: 16px;
+  font-size: 1em;
   line-height: 100%;
   color: #ffffff;
 
   @media (min-width: 1360px) {
-    font-size: 18px;
+    font-size: 1.125em;
   }
 `;
 const JobTitle = styled.div`
   font-weight: bold;
-  font-size: 22px;
+  font-size: 1.375em;
   line-height: 100%;
   color: #ffffff;
 `;
 
 const MainWrapper = styled.div`
   display: grid;
-  gap: 25px;
+  gap: 1.5625em;
 
   background: ${themes.light.MainBackground};
-  padding: 10px 25px;
+  padding: 0.625em 1.5625em;
 `;
 const VagasDescription = styled.p`
-  font-size: 14px;
+  font-size: 0.875em;
 `;
 const VagasCardWrapper = styled.div`
   display: grid;
-  gap: 20px;
+  gap: 1.25em;
 `;
 const VagasCard = styled.div`
   display: grid;
-  gap: 15px;
+  gap: 0.9375em;
 
-  padding: 25px 20px;
+  padding: 1.5625em 1.25em;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 10px 0px 30px rgba(34, 79, 169, 0.1);
-  border-radius: 16px;
+  box-shadow: 0.625em 0em 1.875em rgba(34, 79, 169, 0.1);
+  border-radius: 1em;
 
   ul {
-    padding: 0px 20px;
+    padding: 0em 1.25em;
     li {
       list-style-type: square;
-      padding: 5px 0px;
-      font-size: 15px;
+      padding: 0.3125em 0em;
+      font-size: 0.9375em;
       line-height: 130%;
     }
   }
 `;
 const CardTitle = styled.h2`
   font-weight: bold;
-  font-size: 17px;
+  font-size: 1.0625em;
   color: #5c4fb8;
 `;
 const CardDescription = styled.p`
-  font-size: 15px;
+  font-size: 0.9375em;
   line-height: 130%;
 `;
 
@@ -213,11 +217,11 @@ const ApplyButton = styled.div`
   margin: 0 auto;
 
   width: 100%;
-  height: 60px;
+  height: 3.75em;
   background: #7460ee;
-  box-shadow: 10px 0px 30px rgba(34, 79, 169, 0.1);
-  border-radius: 16px;
+  box-shadow: 0.625em 0em 1.875em rgba(34, 79, 169, 0.1);
+  border-radius: 1em;
 
   color: white;
-  font-size: 16px;
+  font-size: 1em;
 `;

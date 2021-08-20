@@ -17,7 +17,7 @@ const FooterWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  font-size: 13px;
+  font-size: 0.8125em;
   color: #323232;
 
   background: white;

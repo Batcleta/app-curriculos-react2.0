@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&display=swap");
 
 html,
 body,
@@ -89,7 +89,6 @@ video {
   vertical-align: baseline;
   box-sizing: border-box;
 }
-
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -145,4 +144,10 @@ a {
 input {
   outline: none;
   border: none;
+}
+
+@media (min-width: 1400px){
+  body{
+    font-size: 135%;
+  }
 }

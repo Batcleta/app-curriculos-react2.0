@@ -36,7 +36,7 @@ const ContentMenu = styled.div`
   bottom: 0;
 
   display: grid;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 6.25em 1fr;
 
   width: 100vw;
   background: white;
@@ -47,7 +47,7 @@ const ContentMenu = styled.div`
 
   @media (min-width: 1360px) {
     width: ${({ flat }) => (!flat ? "270px" : "100px")};
-    grid-template-rows: 1fr 100px;
+    grid-template-rows: 1fr 6.25em;
     transform: translateX(0vh);
   }
 `;
@@ -56,8 +56,8 @@ const MobileCloseButton = styled.div`
   display: grid;
   justify-self: right;
 
-  width: 50px;
-  height: 50px;
+  width: 3.125em;
+  height: 3.125em;
   background: red;
 
   @media (min-width: 1360px) {
@@ -66,8 +66,8 @@ const MobileCloseButton = styled.div`
 `;
 
 const ToggleFlapButton = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 3.125em;
+  height: 3.125em;
   background: green;
   display: none;
 
