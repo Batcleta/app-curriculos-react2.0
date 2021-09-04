@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { useFlatMenu, useToggle } from "../../context/VagasContext";
+import MobileNav from "../MobileNav";
 
 const Menu = () => {
   const { flatMenu, setFlatMenu } = useFlatMenu();
   const { toggleMenu } = useToggle();
 
   return (
-    <Wrapper flat={flatMenu}>
-      <ContainerMenu flat={flatMenu} toggle={toggleMenu}>
+    <Wrapper flat={flatMenu} toggle={toggleMenu}>
+      <ContainerMenu flat={flatMenu}>
+        <MobileNav />
         <ToggleFlapButton onClick={() => setFlatMenu(!flatMenu)} />
       </ContainerMenu>
     </Wrapper>
@@ -18,19 +20,6 @@ const Menu = () => {
 export default Menu;
 
 const Wrapper = styled.div`
-  display: none;
-
-  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  box-shadow: 10px 0px 30px rgba(34, 79, 169, 0.1);
-
-  @media (min-width: 1200px) {
-    display: grid;
-    width: ${({ flat }) => (!flat ? "16.9rem" : "6.25rem")};
-  }
-`;
-
-const ContainerMenu = styled.div`
   position: fixed;
 
   grid-area: menu;
@@ -46,14 +35,14 @@ const ContainerMenu = styled.div`
 
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: ${({ toggle }) =>
-    !toggle ? "translateX(100%)" : "translateX(0%)"};
+    !toggle ? "translateX(-100%)" : "translateX(0%)"};
 
   @media (min-width: 1200px) {
-    width: ${({ flat }) => (!flat ? "16.9rem" : "6.25rem")};
-
-    transform: translateX(0);
+    display: none;
   }
 `;
+
+const ContainerMenu = styled.div``;
 
 const ToggleFlapButton = styled.div`
   position: absolute;

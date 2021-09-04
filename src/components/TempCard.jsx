@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 // Styles
-import { themes } from "../global/ColorStyles";
+import { themes } from "../globalstyles/ColorStyles";
 // Context
 import { useVagas } from "../context/VagasContext";
 // icons
@@ -9,19 +9,11 @@ import LogoIcon from "../assets/images/company-temp-logo.svg";
 import LocationIcon from "../assets/images/location-icon.svg";
 import MoneyIcon from "../assets/images/money-icon.svg";
 import { useHistory } from "react-router-dom";
-import { vagas } from "../global/Data";
 
-const Card = (props) => {
+const Card = () => {
   const { vagasDetails, setVagasDetails } = useVagas();
-  const { info } = props;
-  const history = useHistory();
 
   const maisDetalhes = () => {
-    if (!vagasDetails) {
-      history.push(`/${info.uuid}`);
-    } else {
-      history.push(`/`);
-    }
     setVagasDetails({ status: !vagasDetails, uuid: "" });
   };
 
@@ -29,19 +21,19 @@ const Card = (props) => {
     <CardWrapper>
       <CompanyInfo>
         <img src={LogoIcon} alt="Logo Trilhatecnologia" />
-        <CompanyName>{info.vagaEmpresa}</CompanyName>
+        <CompanyName>vagaEmpresa</CompanyName>
       </CompanyInfo>
       <JobInfo>
-        <JobTitle>{info.vagaNome}</JobTitle>
-        <JobDescription>{info.vagaDescr}</JobDescription>
+        <JobTitle>vagaNome</JobTitle>
+        <JobDescription>vagaDescr</JobDescription>
         <JobList>
           <div>
             <img src={LocationIcon} alt="Regime icon" />
-            {info.regimeContrato}
+            regimeContrato
           </div>
           <div>
             <img src={MoneyIcon} alt="Money icon" />
-            {`R$ ${info.salarioInicial} à R$ ${info.salarioLimite}`}
+            {`R$ salarioInicial à R$ salarioLimite`}
           </div>
         </JobList>
       </JobInfo>
@@ -83,7 +75,7 @@ const JobTitle = styled.h2`
   font-size: 1.1875em;
   font-weight: bold;
   line-height: 130%;
-  color: ${themes.light.mainTextColor};
+  color: ${themes.light.MainTextColor};
 `;
 const JobDescription = styled.p`
   font-size: 15px;
@@ -122,7 +114,7 @@ const NextButton = styled.div`
   cursor: pointer;
   border-radius: 0px 0px 0.75em 0.75em;
 
-  background: ${themes.light.mainTextColor};
+  background: ${themes.light.mainColor};
   font-weight: bold;
   color: white;
 `;

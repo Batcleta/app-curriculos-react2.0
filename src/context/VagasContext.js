@@ -37,7 +37,7 @@ export const useToggle = () => {
   return { toggleMenu, setToggleMenu };
 };
 
-export const UseFlatMenu = () => {
+export const useFlatMenu = () => {
   const context = useContext(VagasContext);
   const { flatMenu, setFlatMenu } = context;
   return { flatMenu, setFlatMenu };

@@ -1,21 +1,25 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
 import styled from "styled-components";
-// Templates
+import { Route, Switch } from "react-router-dom";
+
+//Components
 import Menu from "./components/templates/Menu";
-import VagasLayout from "./pages/VagasLayout";
-import FormLayout from "./pages/FormLayout";
-// Context
-import { UseFlatMenu } from "./context/VagasContext";
+
+//Pages
+import JobMainPage from "./pages/JobMainPage";
+import JobApplicationPage from "./pages/JobApplicationPage";
+import CompanyGroupPage from "./pages/CompanyGroupPage";
+import MobileMenu from "./components/templates/MobileMenu";
 
 const App = () => {
-  const { flatMenu } = UseFlatMenu();
   return (
-    <Wrapper flat={flatMenu}>
+    <Wrapper>
       <Menu />
+      <MobileMenu />
       <Switch>
-        <Route exact path="/" component={VagasLayout} />
-        <Route path="/formulario" component={FormLayout} />
+        <Route exact path={"/"} component={JobMainPage} />
+        <Route path={"/grupo-trilha"} component={CompanyGroupPage} />
+        <Route path={"formulario"} component={JobApplicationPage} />
       </Switch>
     </Wrapper>
   );
@@ -25,14 +29,16 @@ export default App;
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  /* no modo mobile o menu é fixed */
-  grid-template-areas: "PageLayout";
+  grid-template-columns: auto;
+  grid-template-rows: auto;
 
-  @media (min-width: 1360px) {
-    grid-template-columns: ${({ flat }) =>
-      !flat ? "16.875em auto" : "6.25em auto"};
-    grid-template-areas: "sideMenu PageLayout";
-    height: 100vh;
+  grid-template-areas: "page";
+
+  height: 100vh;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: ${({ flat }) => (!flat ? "auto 1fr" : "auto 1fr")};
+
+    grid-template-areas: "menu page";
   }
 `;

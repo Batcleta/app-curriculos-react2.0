@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <FooterWrapper>
-      Todos os direitos reservados a trilha tecnologia{" "}
+      Todos os direitos reservados a trilha tecnologia
     </FooterWrapper>
   );
 };
@@ -12,8 +12,9 @@ const Footer = () => {
 export default Footer;
 
 const FooterWrapper = styled.div`
-  display: grid;
   grid-area: footer;
+
+  display: grid;
   align-items: center;
   justify-content: center;
 

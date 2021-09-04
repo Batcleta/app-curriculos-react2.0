@@ -3,12 +3,12 @@ import styled from "styled-components";
 import { useHistory } from "react-router";
 import { themes } from "../globalstyles/ColorStyles";
 
-import { UseFlatMenu, useVagas } from "../context/VagasContext";
+import { useFlatMenu, useVagas } from "../context/VagasContext";
 import Header from "./templates/Header";
-import Main from "./templates/Main";
+import LineBottom from "./LineBottom";
 
 const DetVagas = () => {
-  const { setFlatMenu } = UseFlatMenu();
+  const { setFlatMenu } = useFlatMenu();
   const { vagasDetails, setVagasDetails } = useVagas();
   const history = useHistory();
 
@@ -30,6 +30,7 @@ const DetVagas = () => {
             <JobTitle>Técnico de Informática</JobTitle>
           </ContentWrapper>
         </ContentHeader>
+        <LineBottom />
       </Header>
       <MainWrapper>
         <VagasDescription>Criada dia 05/07/2021</VagasDescription>
@@ -75,13 +76,14 @@ export default DetVagas;
 
 const Wrapper = styled.div`
   position: fixed;
-  top: 0.9375em;
-  right: 0.625em;
-  bottom: 0.9375em;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 18.125em 1fr;
+  grid-template-rows: 19em 1fr;
   grid-template-areas:
     "header"
     "main";
@@ -93,25 +95,36 @@ const Wrapper = styled.div`
     !active ? "translateX(110%)" : "translateX(0%)"};
 
   box-shadow: 0em 0em 3.125em rgba(0, 0, 0, 0.2);
-  border-radius: 1em;
+  border-radius: 0em;
   overflow-y: auto;
 
   @media (min-width: 1360px) {
-    width: 24.375em;
-  }
+    grid-template-rows: 18.125em 1fr;
 
-  @media (min-width: 1400px) {
-    width: 28em;
+    width: 24.375em;
+
+    top: 0.5em;
+    right: 0;
+    bottom: 0.5em;
+
+    border-radius: 1em;
   }
 `;
 
 const ContentHeader = styled.div`
-  padding: 3.125em 1.5625em 1.25em;
+  //padding: 3.125em 1.5625em 1.25em;
   display: grid;
+
+  align-content: start;
+
+  @media (min-width: 1200px) {
+    align-content: center;
+  }
 `;
 
 const CloseButton = styled.div`
   display: none;
+
   @media (min-width: 1360px) {
     position: absolute;
     top: 1.875em;
@@ -131,6 +144,7 @@ const MobileCloseButton = styled(CloseButton)`
   height: 3.125em;
   background: red;
   margin: 1.25em;
+
   @media (min-width: 1360px) {
     display: none;
   }
@@ -140,6 +154,7 @@ const ContentWrapper = styled.div`
   display: grid;
   justify-items: center;
 `;
+
 const ImageWrapper = styled.div`
   display: grid;
   justify-content: center;
@@ -151,6 +166,7 @@ const ImageWrapper = styled.div`
   border-radius: 50%;
   background: ${themes.light.MainBackground};
 `;
+
 const CompanyTitle = styled.div`
   font-size: 1em;
   line-height: 100%;
@@ -174,13 +190,16 @@ const MainWrapper = styled.div`
   background: ${themes.light.MainBackground};
   padding: 0.625em 1.5625em;
 `;
+
 const VagasDescription = styled.p`
   font-size: 0.875em;
 `;
+
 const VagasCardWrapper = styled.div`
   display: grid;
   gap: 1.25em;
 `;
+
 const VagasCard = styled.div`
   display: grid;
   gap: 0.9375em;
@@ -200,11 +219,13 @@ const VagasCard = styled.div`
     }
   }
 `;
+
 const CardTitle = styled.h2`
   font-weight: bold;
   font-size: 1.0625em;
-  color: #5c4fb8;
+  color: ${themes.light.mainTextColor};
 `;
+
 const CardDescription = styled.p`
   font-size: 0.9375em;
   line-height: 130%;
@@ -218,7 +239,7 @@ const ApplyButton = styled.div`
 
   width: 100%;
   height: 3.75em;
-  background: #7460ee;
+  background: ${themes.light.mainColor};
   box-shadow: 0.625em 0em 1.875em rgba(34, 79, 169, 0.1);
   border-radius: 1em;
 

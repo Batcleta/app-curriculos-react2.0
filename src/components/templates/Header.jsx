@@ -1,49 +1,31 @@
 import React from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
-// Styles
-import { themes } from "../../globalstyles/ColorStyles";
 
-const Header = ({ children }) => {
+import { themes } from "../../globalstyles/ColorStyles";
+import { useHistory } from "react-router-dom";
+
+const Header = (props) => {
+  const { children } = props;
   const history = useHistory().location.pathname;
-  console.log(history);
-  return (
-    <HeaderWrapper history={history}>
-      {children}
-      <LineBottom history={history} />
-    </HeaderWrapper>
-  );
+
+  return <Wrapper history={history}>{children}</Wrapper>;
 };
 
 export default Header;
 
-const HeaderWrapper = styled.div`
-  display: grid;
+const Wrapper = styled.div`
+  position: relative;
   grid-area: header;
-  grid-template-rows: 4.375em auto 1.25em;
+
+  display: grid;
+  grid-template-rows: 5.625em auto 1.2em;
 
   background: ${({ history }) =>
-    history === "/formulario"
-      ? `${themes.light.MainBackground}`
-      : `${themes.light.mainColor}`};
-
-  @media (min-width: 1360px) {
-    grid-template-rows: ${({ history }) =>
-      history === "/formulario" ? `5em 1fr` : `1fr 1.25em`};
-  }
-`;
-
-const LineBottom = styled.div`
-  height: 1.25em;
-
-  border-radius: 0.75em 0.75em 0 0;
-
-  background: ${({ history }) =>
-    history === "/formulario"
+    history !== "/formulario"
       ? `${themes.light.mainColor}`
-      : `${themes.light.MainBackground}`};
+      : `${themes.light.mainBackground}`};
 
-  @media (min-width: 1360px) {
-    display: ${({ history }) => (history === "/formulario" ? "none" : "auto")};
+  @media (min-width: 1200px) {
+    grid-template-rows: auto 1.2em;
   }
 `;

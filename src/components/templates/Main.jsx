@@ -1,19 +1,24 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 import { themes } from "../../globalstyles/ColorStyles";
 
-const Main = ({ children }) => {
+const Main = (props) => {
+  const { children } = props;
   const history = useHistory().location.pathname;
-  return <MainWrapper history={history}>{children}</MainWrapper>;
+
+  return <Wrapper history={history}>{children}</Wrapper>;
 };
 
 export default Main;
 
-const MainWrapper = styled.div`
+const Wrapper = styled.div`
   grid-area: main;
+
   background: ${({ history }) =>
-    history === "/formulario"
-      ? `${themes.light.mainColor}`
-      : `${themes.light.MainBackground}`};
+    history !== "/formulario"
+      ? `${themes.light.MainBackground}`
+      : `${themes.light.mainColor}`};
+
+  height: 1000px;
 `;
