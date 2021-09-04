@@ -120,7 +120,7 @@ const Container = styled.div`
   display: grid;
   gap: 1.5rem;
 
-  margin-top: 1.5rem;
+  margin-top: 3rem;
 
   justify-items: center;
 `;
