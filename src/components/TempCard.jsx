@@ -75,7 +75,7 @@ const JobTitle = styled.h2`
   font-size: 1.1875em;
   font-weight: bold;
   line-height: 130%;
-  color: ${themes.light.MainTextColor};
+  color: ${themes.light.mainTextColor};
 `;
 const JobDescription = styled.p`
   font-size: 15px;

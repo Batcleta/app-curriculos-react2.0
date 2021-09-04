@@ -164,7 +164,7 @@ const ImageWrapper = styled.div`
   width: 6.25em;
 
   border-radius: 50%;
-  background: ${themes.light.MainBackground};
+  background: ${themes.light.mainBackground};
 `;
 
 const CompanyTitle = styled.div`
@@ -187,7 +187,7 @@ const MainWrapper = styled.div`
   display: grid;
   gap: 1.5625em;
 
-  background: ${themes.light.MainBackground};
+  background: ${themes.light.mainBackground};
   padding: 0.625em 1.5625em;
 `;
 

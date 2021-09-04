@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   background: ${({ history }) =>
     history === "/formulario"
       ? `${themes.light.mainColor}`
-      : `${themes.light.MainBackground}`};
+      : `${themes.light.mainBackground}`};
 
   @media (min-width: 1360px) {
     display: ${({ history }) => (history === "/formulario" ? "none" : "auto")};

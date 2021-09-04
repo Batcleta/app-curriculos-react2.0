@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 
   background: ${({ history }) =>
     history !== "/formulario"
-      ? `${themes.light.MainBackground}`
+      ? `${themes.light.mainBackground}`
       : `${themes.light.mainColor}`};
 
   height: 1000px;
