@@ -94,7 +94,6 @@ const Wrapper = styled.div`
   display: none;
 
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-
   box-shadow: 10px 0px 30px rgba(34, 79, 169, 0.1);
 
   @media (min-width: 1200px) {
@@ -105,42 +104,107 @@ const Wrapper = styled.div`
 
 const ContainerMenu = styled.div`
   position: fixed;
+  z-index: 2;
 
   grid-area: menu;
 
-  z-index: 2;
-
-  overflow: hidden;
-
   height: 100vh;
-  width: 100vw;
 
   background: white;
 
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transform: ${({ toggle }) =>
-    !toggle ? "translateX(100%)" : "translateX(0%)"};
+  width: ${({ flat }) => (!flat ? "16.9rem" : "6.25rem")};
+`;
 
-  @media (min-width: 1200px) {
-    width: ${({ flat }) => (!flat ? "16.9rem" : "6.25rem")};
+const Container = styled.div`
+  display: grid;
+  gap: 1.5rem;
 
-    transform: translateX(0);
+  margin-top: 1.5rem;
+
+  justify-items: center;
+`;
+
+const LogoWrapper = styled.div`
+  display: grid;
+  align-items: center;
+`;
+const Logo = styled.img``;
+
+const NavWrapper = styled.div`
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.1rem;
+
+    height: 3rem;
+
+    padding: 0.688rem 1.5rem;
+
+    transition: 0.2s ease-in;
+    border-radius: 1.2rem;
+
+    &.active {
+      box-shadow: 10px 0px 30px rgba(34, 79, 169, 0.1);
+      background: ${themes.light.mainTextColor};
+
+      svg {
+        path {
+          fill: white;
+        }
+      }
+
+      h2 {
+        color: white;
+      }
+    }
   }
 `;
 
-const Container = styled.div``;
+const NavIcon = styled.div`
+  > svg path {
+    fill: ${themes.light.menuLinkColor};
+  }
+`;
+const NavTitle = styled.h2`
+  color: ${themes.light.menuLinkColor};
+  display: ${({ flat }) => (!flat ? "auto" : "none")};
+`;
 
-const LogoWrapper = styled.div``;
-const Logo = styled.img``;
+const MenuImage = styled.div`
+  position: relative;
+  width: 100%;
+  height: 21rem;
 
-const NavWrapper = styled.div``;
+  img {
+    position: absolute;
+    width: 100%;
+    left: 0;
+  }
+`;
 
-const NavIcon = styled.div``;
-const NavTitle = styled.h2``;
+const BackLinkWrapper = styled.div`
+  display: grid;
+  align-items: center;
 
-const MenuImage = styled.div``;
+  a {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
 
-const BackLinkWrapper = styled.div``;
+    height: 55px;
+    width: 100%;
+    max-width: 350px;
+
+    padding: 11px 20px;
+  }
+`;
 
 const ToggleFlapButton = styled.div`
   display: none;
@@ -149,7 +213,7 @@ const ToggleFlapButton = styled.div`
   right: 0;
   bottom: 2rem;
 
-  width: ${({ flat }) => (!flat ? "5.121rem" : "4rem")};
+  width: ${({ flat }) => (!flat ? "6rem" : "4.7rem")};
   height: 3rem;
 
   cursor: pointer;
