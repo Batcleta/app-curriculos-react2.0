@@ -136,14 +136,19 @@ const FilterReset = styled.div`
   color: ${themes.light.mainTextColor};
 `;
 
-const JobContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-`;
-
 const MainContainer = styled(Container)``;
 
 const VagasInfo = styled.div`
   margin: 1rem 0 2rem 1.4rem;
+`;
+
+const JobContainer = styled.div`
+  margin-bottom: 2rem;
+  display: grid;
+  gap: 3rem;
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 `;

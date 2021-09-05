@@ -19,6 +19,4 @@ const Wrapper = styled.div`
     history !== "/formulario"
       ? `${themes.light.mainBackground}`
       : `${themes.light.mainColor}`};
-
-  height: 1000px;
 `;
