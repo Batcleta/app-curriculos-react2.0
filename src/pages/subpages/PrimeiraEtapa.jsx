@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import FormHeader from "../../components/templates/FormHeader";
-import { themes } from "../../global/ColorStyles";
+import { themes } from "../../globalstyles/ColorStyles";
 import { SwapButton } from "../../assets/images/SpecialIcons";
 
 const PrimeiraEtapa = () => {
@@ -75,7 +75,6 @@ const FormWrapper = styled.div`
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0px 20px 40px rgba(34, 79, 169, 0.1),
     inset 0px 4px 4px rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(40px);
   /* Note: backdrop-filter has minimal browser support */
 
   border-radius: 12px;

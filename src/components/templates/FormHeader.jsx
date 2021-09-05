@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { themes } from "../../global/ColorStyles";
+import { themes } from "../../globalstyles/ColorStyles";
 
 const FormHeader = () => {
   return (
