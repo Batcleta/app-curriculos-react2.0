@@ -1,10 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
+
 import FormHeader from "../../components/templates/FormHeader";
 import { themes } from "../../globalstyles/ColorStyles";
 import { SwapButton } from "../../assets/images/SpecialIcons";
 
 const PrimeiraEtapa = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    setValue,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("teste bem sucedido");
+  };
+
   return (
     <Wrapper>
       <FormWrapper>
@@ -19,7 +33,7 @@ const PrimeiraEtapa = () => {
           <ImageWrapper
             src={require("../../assets/images/web-form-image.svg").default}
           />
-          <Form>
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <FormGroup>
               <label>
                 <span>*</span>
@@ -52,13 +66,10 @@ const PrimeiraEtapa = () => {
               </FormTextWrapper>
               <textarea />
             </DescribeBetter>
+            <NextButton type={"submit"} />
           </Form>
         </FormContent>
       </FormWrapper>
-      <NextButton>
-        Seguinte
-        <SwapButton />
-      </NextButton>
     </Wrapper>
   );
 };
@@ -69,7 +80,7 @@ const Wrapper = styled.div`
   position: relative;
   width: 100%;
 
-  padding-bottom: 100px;
+  padding-bottom: 6.25rem;
 `;
 const FormWrapper = styled.div`
   background: rgba(255, 255, 255, 0.96);
@@ -77,21 +88,21 @@ const FormWrapper = styled.div`
     inset 0px 4px 4px rgba(255, 255, 255, 0.25);
   /* Note: backdrop-filter has minimal browser support */
 
-  border-radius: 12px;
+  border-radius: 1rem;
 `;
 
 const FormContent = styled.div`
   display: grid;
-  gap: 50px;
+  gap: 3.125rem;
 
-  padding: 40px 20px;
+  padding: 2.5rem 1.25rem;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1280px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3, auto);
 
-    row-gap: 60px;
-    padding: 30px 30px;
+    row-gap: 3.75rem;
+    padding: 2rem 2rem;
   }
 `;
 
@@ -103,17 +114,17 @@ const TextWrapper = styled.div`
 `;
 const Title = styled.div`
   font-weight: 800;
-  font-size: 22px;
-  line-height: 28px;
-  color: #5c4fb8;
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+  color: ${themes.light.mainTextColor};
 `;
 const Description = styled.div`
   font-weight: normal;
-  font-size: 17px;
+  font-size: 1.05rem;
   line-height: 130%;
   /* or 22px */
 
-  color: #5a5a5a;
+  color: ${themes.light.menuLinkColor};
 `;
 
 const ImageWrapper = styled.img`
@@ -129,7 +140,7 @@ const ImageWrapper = styled.img`
 
 const Form = styled.div`
   display: grid;
-  gap: 35px;
+  gap: 2.2rem;
 
   @media (min-width: 1200px) {
     grid-column: 1 / 3;
@@ -142,46 +153,46 @@ const Form = styled.div`
 
 const FormGroup = styled.div`
   display: grid;
-  gap: 15px;
+  gap: 0.93rem;
 
   > label {
     display: grid;
-    grid-template-columns: 15px auto;
+    grid-template-columns: 0.93rem auto;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
     /* identical to box height */
 
     color: rgba(0, 0, 0, 0.5);
 
     > span {
       color: ${themes.light.mainTextColor};
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 800;
     }
   }
   > input {
-    padding: 14px 16px;
-    max-width: 292px;
-    height: 50px;
+    padding: 0.875rem 1rem;
+    max-width: 18.125rem;
+    height: 3.125rem;
 
     /* Main Color */
 
-    border: 1.2px solid #7460ee;
+    border: 1px solid ${themes.light.mainColor};
     box-sizing: border-box;
-    border-radius: 12px;
+    border-radius: 0.75rem;
 
     font-weight: normal;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 0.875rem;
+    line-height: 1.125rem;
     /* identical to box height */
 
     color: rgba(0, 0, 0, 0.9);
 
     ::placeholder {
       font-weight: normal;
-      font-size: 14px;
-      line-height: 18px;
+      font-size: 0.875rem;
+      line-height: 1.125rem;
       /* identical to box height */
 
       color: rgba(0, 0, 0, 0.9);
@@ -208,14 +219,14 @@ const FormGroup = styled.div`
 
 const DescribeBetter = styled.div`
   display: grid;
-  gap: 35px;
+  gap: 2.2rem;
   textarea {
-    max-width: 292px;
-    height: 110px;
+    max-width: 18.125rem;
+    height: 6.875rem;
 
-    border: 1.2px solid #7460ee;
+    border: 1.2px solid ${themes.light.mainColor};
     box-sizing: border-box;
-    border-radius: 12px;
+    border-radius: 0.75rem;
   }
 
   @media (min-width: 1200px) {
@@ -227,14 +238,14 @@ const DescribeBetter = styled.div`
 const FormTextWrapper = styled.div`
   h2 {
     font-weight: bold;
-    font-size: 18px;
-    line-height: 23px;
+    font-size: 1.125rem;
+    line-height: 1.438rem;
 
-    color: #7460ee;
+    color: ${themes.light.mainColor};
   }
 
   p {
-    font-size: 15px;
+    font-size: 0.938rem;
     line-height: 130%;
     /* or 19px */
 
@@ -242,24 +253,24 @@ const FormTextWrapper = styled.div`
   }
 `;
 
-const NextButton = styled.div`
+const NextButton = styled.input`
   position: absolute;
   right: 0;
-  margin-top: 30px;
+  margin-top: 2rem;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 
-  padding: 6px 9px;
+  padding: 0.375rem 0.563rem;
   width: 100%;
-  max-width: 150px;
-  height: 41px;
+  max-width: 9.375rem;
+  height: 2.5rem;
 
   background: white;
-  border-radius: 22.5px;
+  border-radius: 1.2rem;
 
   > svg {
     transform: rotate(180deg);

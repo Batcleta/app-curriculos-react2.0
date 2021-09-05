@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 
 //Context
 import { useFlatMenu } from "../context/VagasContext";
@@ -21,6 +21,77 @@ import SegundaEtapa from "./subpages/SegundaEtapa";
 
 const JobApplicationPage = () => {
   const { flatMenu } = useFlatMenu();
+  const { url } = useRouteMatch();
+
+  const routes = [
+    {
+      path: `${url}/`,
+      exact: true,
+      sidebar: () => (
+        <div>
+          <p>Como soube da vaga? </p>
+        </div>
+      ),
+      main: PrimeiraEtapa,
+    },
+    {
+      path: `${url}/informacoes-principais`,
+      sidebar: () => (
+        <div>
+          <p>Informações Principais</p>
+        </div>
+      ),
+      main: SegundaEtapa,
+    },
+    {
+      path: `${url}/experiencias-profissionais`,
+      sidebar: () => (
+        <div>
+          <p>Experiências Profissionais</p>
+        </div>
+      ),
+      main: "CadastroEtapa3",
+    },
+    {
+      path: `${url}/capacitacoes`,
+      sidebar: () => (
+        <div>
+          <p>Capacitações</p>
+        </div>
+      ),
+      main: "CadastroEtapa4",
+    },
+    {
+      path: `${url}/contatos`,
+      sidebar: () => (
+        <div>
+          <p>Contatos</p>
+        </div>
+      ),
+      main: "CadastroEtapa5",
+    },
+    {
+      path: `${url}/confira-seus-dados`,
+      sidebar: () => (
+        <div>
+          {/*{comoSoube &&*/}
+          {/*dadospprincipais &&*/}
+          {/*experiencias &&*/}
+          {/*experiencias &&*/}
+          {/*contato ? (*/}
+          <div>
+            <h1>Parabens</h1>
+            <h2>você completou o seu cadastro.</h2>
+            <p>Agora, confira suas informações antes de envia-las</p>
+            <p>Lembre-se!!! Após enviadas, elas não poderão ser alteradas</p>
+          </div>
+          ) : ( "" )}
+        </div>
+      ),
+      main: "CadastroEtapa6",
+    },
+  ];
+
   return (
     <Wrapper>
       <Header>
@@ -46,7 +117,14 @@ const JobApplicationPage = () => {
           </MainTitleWrapper>
           <MainFormWrapper>
             <Switch>
-              <Route path={"/formulario"} component={PrimeiraEtapa} />
+              {routes.map((route, index) => (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  component={route.main}
+                />
+              ))}
             </Switch>
           </MainFormWrapper>
         </ContentWrapper>
