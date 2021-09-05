@@ -19,14 +19,14 @@ export default FormHeader;
 const Wrapper = styled.div`
   position: relative;
   display: grid;
-  gap: 5px;
+  gap: 0.6rem;
 
   align-items: center;
 
-  padding: 20px;
+  padding: 1.25rem;
 
   @media (min-width: 1200px) {
-    padding: 20px 30px;
+    padding: 1.25rem 2rem;
 
     grid-template-columns: auto auto;
     justify-content: space-between;
@@ -34,33 +34,32 @@ const Wrapper = styled.div`
 `;
 
 const HeaderTitle = styled.div`
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 25px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
   /* identical to box height */
   color: ${themes.light.mainTextColor};
 `;
 const Informativo = styled.div`
   font-weight: 600;
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 0.8rem;
 
-  color: #818181;
+  color: ${themes.light.mainParColor};
 `;
 const BottomLine = styled.div`
   position: absolute;
   bottom: 0;
 
-  padding-left: 30px;
+  padding-left: 2rem;
 
-  height: 3px;
+  height: 0.2rem;
   width: 100%;
 
   background: #c1b7fe;
 
   > div {
-    height: 3px;
-    width: 100px;
+    height: 0.2rem;
+    width: 20%;
     background: ${themes.light.mainColor};
   }
 `;

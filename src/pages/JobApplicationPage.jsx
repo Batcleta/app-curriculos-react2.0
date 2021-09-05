@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Route, Switch } from "react-router-dom";
 
+//Context
+import { useFlatMenu } from "../context/VagasContext";
+
 //Theming
 import { themes } from "../globalstyles/ColorStyles";
 import { Container, H2, MediumText } from "../globalstyles/GlobalStyles";
@@ -17,11 +20,12 @@ import PrimeiraEtapa from "./subpages/PrimeiraEtapa";
 import SegundaEtapa from "./subpages/SegundaEtapa";
 
 const JobApplicationPage = () => {
+  const { flatMenu } = useFlatMenu();
   return (
     <Wrapper>
       <Header>
         <MobileNav />
-        <HeaderContainer>
+        <HeaderContainer flat={flatMenu}>
           <Title>Learn the best tools and platforms</Title>
           <Description>
             Most coding courses treat design as an afterthought. Yet, the
@@ -35,7 +39,7 @@ const JobApplicationPage = () => {
         <LineBottom />
       </Header>
       <Main>
-        <MainFormWrapper>
+        <ContentWrapper>
           <MainTitleWrapper>
             <MainTitle>Analista de sistemas</MainTitle>
             <MainDescription>chamada qualquer sobre a vaga</MainDescription>
@@ -45,7 +49,7 @@ const JobApplicationPage = () => {
               <Route path={"/formulario"} component={PrimeiraEtapa} />
             </Switch>
           </MainFormWrapper>
-        </MainFormWrapper>
+        </ContentWrapper>
       </Main>
     </Wrapper>
   );
@@ -71,8 +75,11 @@ const Wrapper = styled.div`
 
 const HeaderContainer = styled.div`
   padding: 2.5rem 1.5rem;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media (min-width: 1280px) {
+    position: fixed;
+    max-width: ${({ flat }) => (!flat ? "20rem" : "24rem")};
     padding-top: 5rem;
   }
 `;
@@ -115,12 +122,18 @@ const CompleteStages = styled.div`
 `;
 
 //Main Styles
-const MainFormWrapper = styled(Container)`
-  padding-top: 2rem;
+const ContentWrapper = styled(Container)`
+  margin-top: 1rem;
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media (min-width: 1280px) {
-    padding-top: 3rem;
+    margin-top: 3rem;
+    max-width: 48rem;
   }
+`;
+
+const MainFormWrapper = styled.div`
+  margin-top: 1.5rem;
 `;
 const MainTitleWrapper = styled.div``;
 const MainTitle = styled(H2)`
