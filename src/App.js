@@ -19,7 +19,7 @@ const App = () => {
       <Switch>
         <Route exact path={"/"} component={JobMainPage} />
         <Route path={"/grupo-trilha"} component={CompanyGroupPage} />
-        <Route path={"formulario"} component={JobApplicationPage} />
+        <Route path={"/formulario"} component={JobApplicationPage} />
       </Switch>
     </Wrapper>
   );

@@ -16,6 +16,11 @@ export const H1 = styled.h1`
   font-size: 2rem;
 `;
 
+export const H2 = styled.h2`
+  font-weight: 600;
+  font-size: 1.8rem;
+`;
+
 export const MediumText = styled.div`
   font-size: 1rem;
   line-height: 130%;

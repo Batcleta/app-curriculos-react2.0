@@ -26,7 +26,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/pages" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Thewa\Documents\GitHub\app-curriculos-react2.0\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
@@ -34,6 +34,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Thewa\Documents\GitHub\app-curriculos-react2.0\src\pages" />
       <recent name="C:\Users\Thewa\Documents\GitHub\app-curriculos-react2.0\src\assets" />
       <recent name="C:\Users\Thewa\Documents\GitHub\app-curriculos-react2.0\src\components" />
       <recent name="C:\Users\Thewa\Documents\GitHub\app-curriculos-react2.0\src\components\templates" />
@@ -52,7 +53,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1630720018716</updated>
-      <workItem from="1630720021011" duration="19664000" />
+      <workItem from="1630720021011" duration="25166000" />
     </task>
     <servers />
   </component>
