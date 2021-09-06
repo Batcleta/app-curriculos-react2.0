@@ -18,6 +18,7 @@ import LineBottom from "../components/LineBottom";
 //Pages
 import PrimeiraEtapa from "./subpages/PrimeiraEtapa";
 import SegundaEtapa from "./subpages/SegundaEtapa";
+import TerceiraEtapa from "./subpages/TerceiraEtapa";
 
 const JobApplicationPage = () => {
   const { flatMenu } = useFlatMenu();
@@ -50,7 +51,7 @@ const JobApplicationPage = () => {
           <p>Experiências Profissionais</p>
         </div>
       ),
-      main: "CadastroEtapa3",
+      main: TerceiraEtapa,
     },
     {
       path: `${url}/capacitacoes`,

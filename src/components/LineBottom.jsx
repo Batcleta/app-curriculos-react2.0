@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { themes } from "../globalstyles/ColorStyles";
+import { useHistory } from "react-router-dom";
 
 const LineBottom = () => {
-  return <Wrapper></Wrapper>;
+  const history = useHistory().location.pathname;
+  return <Wrapper history={history}></Wrapper>;
 };
 
 export default LineBottom;
@@ -19,11 +21,12 @@ const Wrapper = styled.div`
   border-radius: 0.75rem 0.75rem 0 0;
 
   background: ${({ history }) =>
-    history === "/formulario"
+    history.startsWith("/formulario")
       ? `${themes.light.mainColor}`
       : `${themes.light.mainBackground}`};
 
   @media (min-width: 1360px) {
-    display: ${({ history }) => (history === "/formulario" ? "none" : "auto")};
+    display: ${({ history }) =>
+      history.startsWith("/formulario") ? "none" : "auto"};
   }
 `;

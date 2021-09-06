@@ -10,6 +10,12 @@ import {
   FormLabel,
   FormSelect,
   ErrorMessage,
+  FormWrapper,
+  Title,
+  Description,
+  FormContent,
+  Form,
+  NextButton,
 } from "../../globalstyles/GlobalStyles";
 
 //Components
@@ -35,7 +41,7 @@ const PrimeiraEtapa = (props) => {
     <Wrapper>
       <FormWrapper>
         <FormHeader />
-        <FormContent>
+        <TempFormContent>
           <TextWrapper comoSoube={comoSoube}>
             <Title comoSoube={comoSoube}>Antes de começarmos</Title>
             <Description comoSoube={comoSoube}>
@@ -46,8 +52,8 @@ const PrimeiraEtapa = (props) => {
             src={require("../../assets/images/web-form-image.svg").default}
           />
 
-          <Form onSubmit={handleSubmit(onSubmit)} id={"myForm"}>
-            <FormGroup comoSoube={comoSoube}>
+          <TempForm onSubmit={handleSubmit(onSubmit)} id={"myForm"}>
+            <TempFormGroup comoSoube={comoSoube}>
               <FormLabel>
                 <span>*</span>
                 Como soube sobre a vaga?
@@ -67,9 +73,9 @@ const PrimeiraEtapa = (props) => {
               {errors.comoSoubeDaVaga && (
                 <ErrorMessage> Informe como soube da vaga</ErrorMessage>
               )}
-            </FormGroup>
+            </TempFormGroup>
 
-            <FormGroup>
+            <TempFormGroup>
               <FormLabel>
                 <span>*</span>
                 Qual a sua pretenção salarial?
@@ -81,12 +87,12 @@ const PrimeiraEtapa = (props) => {
               {errors.pretencaoSalarial && (
                 <ErrorMessage>Informe sua pretenção salarial</ErrorMessage>
               )}
-            </FormGroup>
+            </TempFormGroup>
 
             {!comoSoube ? (
               ""
             ) : (
-              <FormGroup>
+              <TempFormGroup>
                 <FormLabel>
                   <span>*</span>
                   Qual o nome do funcionário?
@@ -101,7 +107,7 @@ const PrimeiraEtapa = (props) => {
                 {errors.nomeDoFuncionarioQueIndicou && (
                   <ErrorMessage>Informe o nome do funcionário</ErrorMessage>
                 )}
-              </FormGroup>
+              </TempFormGroup>
             )}
 
             <DescribeBetter>
@@ -123,8 +129,8 @@ const PrimeiraEtapa = (props) => {
                 )}
               </div>
             </DescribeBetter>
-          </Form>
-        </FormContent>
+          </TempForm>
+        </TempFormContent>
       </FormWrapper>
 
       <NextButton form={"myForm"}>
@@ -143,28 +149,6 @@ const Wrapper = styled.div`
 
   padding-bottom: 6.25rem;
 `;
-const FormWrapper = styled.div`
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0px 20px 40px rgba(34, 79, 169, 0.1),
-    inset 0px 4px 4px rgba(255, 255, 255, 0.25);
-  /* Note: backdrop-filter has minimal browser support */
-
-  border-radius: 1rem;
-`;
-const FormContent = styled.div`
-  display: grid;
-  gap: 3.125rem;
-
-  padding: 2.5rem 1.25rem;
-
-  @media (min-width: 1280px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, auto);
-
-    row-gap: 3.75rem;
-    padding: 2rem 2rem;
-  }
-`;
 const TextWrapper = styled.div`
   transition: 0.5s;
 
@@ -175,25 +159,6 @@ const TextWrapper = styled.div`
     transform: ${({ comoSoube }) => (!comoSoube ? "translateY(5rem)" : "")};
   }
 `;
-const Title = styled.div`
-  font-weight: 800;
-  transition: 0.5s;
-
-  font-size: ${({ comoSoube }) => (!comoSoube ? "1.5rem" : "1.375rem")};
-
-  line-height: 1.75rem;
-  color: ${themes.light.mainTextColor};
-`;
-const Description = styled.div`
-  font-weight: normal;
-  transition: 0.5s;
-
-  font-size: ${({ comoSoube }) => (!comoSoube ? "1.2rem" : "1.05rem")};
-  line-height: 130%;
-  /* or 22px */
-
-  color: ${themes.light.menuLinkColor};
-`;
 const ImageWrapper = styled.img`
   display: none;
 
@@ -202,18 +167,6 @@ const ImageWrapper = styled.img`
     justify-self: center;
     grid-column: 2 / 3;
     grid-row: 1 / 3;
-  }
-`;
-const Form = styled.form`
-  display: grid;
-  gap: 2.2rem;
-
-  @media (min-width: 1200px) {
-    grid-column: 1 / 3;
-    grid-row: 2 / 4;
-
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, auto);
   }
 `;
 const DescribeBetter = styled.div`
@@ -256,29 +209,47 @@ const FormTextWrapper = styled.div`
     color: rgba(0, 0, 0, 0.6);
   }
 `;
-const NextButton = styled.button`
-  position: absolute;
-  right: 0;
-  margin-top: 2rem;
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
+// Substituir
+const TempFormContent = styled(FormContent)`
+  @media (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
 
-  padding: 0.375rem 0.563rem;
-  width: 100%;
-  max-width: 9.375rem;
-  height: 2.5rem;
+    row-gap: 3.75rem;
+    padding: 2rem 2rem;
+  }
+`;
+const TempForm = styled(Form)`
+  @media (min-width: 1200px) {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
 
-  background: white;
-  border-radius: 1.2rem;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+const TempFormGroup = styled(FormGroup)`
+  @media (min-width: 1200px) {
+    transition: 0.5s;
 
-  > svg {
-    transform: rotate(180deg);
-    path {
-      fill: ${themes.light.mainTextColor};
+    &:nth-child(1) {
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+
+      transform: ${({ comoSoube }) => (!comoSoube ? "translateY(7.1rem)" : "")};
+    }
+
+    &:nth-child(2) {
+      grid-row: 2 / 3;
+      grid-column: 2 / 3;
+    }
+
+    &:nth-child(3) {
+      grid-row: 2 / 3;
+      grid-column: 1 / 2;
+
+      opacity: ${({ comoSoube }) => (!comoSoube ? "1" : "0")};
     }
   }
 `;

@@ -14,9 +14,10 @@ export default Main;
 
 const Wrapper = styled.div`
   grid-area: main;
+  overflow-y: scroll;
 
   background: ${({ history }) =>
-    history !== "/formulario"
+    !history.startsWith("/formulario")
       ? `${themes.light.mainBackground}`
       : `${themes.light.mainColor}`};
 `;

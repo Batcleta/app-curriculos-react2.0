@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   grid-template-rows: 5.625em auto 1.2em;
 
   background: ${({ history }) =>
-    history !== "/formulario"
+    !history.startsWith("/formulario")
       ? `${themes.light.mainColor}`
       : `${themes.light.mainBackground}`};
 
